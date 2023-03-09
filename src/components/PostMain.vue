@@ -1,11 +1,14 @@
 <script>
 import axios from 'axios';
-
+import ProjectCard from './ProjectCard.vue';
 export default {
+    components: {
+        ProjectCard
+    },
     name: "PostMain",
     data() {
         return {
-            posts: [],
+            projects: [],
             loading: true,
             baseUrl: 'http://127.0.0.1:8000',
             currentPage: 1,
@@ -18,11 +21,6 @@ export default {
                 axios.get(`${this.baseUrl}/api/projects`, { params: { page: project_page } }).then((response) => {
                     if (response.data.success) {
                         console.log(response.data)
-
-                        // se nel backend faccio post::all 
-                        // this.projects = response.data.results 
-
-                        // con paginate
                         this.projects = response.data.results.data;
                         this.currentPage = response.data.results.current_page;
                         this.lastPage = response.data.results.last_page;
@@ -54,20 +52,11 @@ export default {
                 </div>
             </div>
             <div v-else class="d-flex flex-wrap gap-5 justify-content-center">
-                <div v-for="post in projects" :key="post.id" class="col-md-3">
-                    <div>
-                        <div class="card my-3">
-                        <img :src="projects.cover_image != null ? `${baseUrl}/storage/${projects.cover_image}` : 'https://picsum.photos/200/300'" class="card-img-top" alt="Cover Image">
-                        <div class="card-body">
-                            <h5 class="card-title">{{post.title}}</h5>
-
-                            <p class="card-text">{{post.excerpt}}</p>
-                            <a href="#" class="btn btn-sm btn-success">Leggi l'articolo</a>
-                        </div>
-                    </div>
+                <div v-for="project in projects" :key="project.id" class="col-md-3">
+                    <ProjectCard :project="project" :baseUrl="baseUrl"></ProjectCard>
+                    
                 </div>
             </div>
-        </div>
             <div class="row text-center">
                 <div class="col-12">
                     <nav>
