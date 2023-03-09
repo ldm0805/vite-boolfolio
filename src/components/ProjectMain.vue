@@ -39,41 +39,39 @@
     }
 </script>
 <template lang="">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="text-center">Boolpress</h2>
-            </div>
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">Boolpress</h2>
         </div>
+    </div>
+    <div class="d-flex justify-content-center">
         <div v-if="loading" class="d-flex justify-content-center">
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div v-else>
-            <div v-for="project in projects" :key="project.id">
+        <div class="d-flex flex-wrap" v-else>
+            <div class="col-3 p-3" v-for="project in projects" :key="project.id">
                 <ProjectCard :project="project" :baseUrl="baseUrl"></ProjectCard>
             </div>
         </div>
-        <div class="row text-center">
-            <div class="col-12">
-                <nav>
-                    <ul class="pagination">
-                        <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
-                            <button class="page-link" @click="getProjects(currentPage - 1)">Prev</button>
-                        </li>
-                        <li :class="currentPage === i ? 'disabled' : 'page-item'" v-for="i in lastPage">
-                            <button class="page-link" @click="getProjects(i)">{{i}}</button>
-                        </li>
-                        <li :class="currentPage === lastPage ? 'disabled' : 'page-item'">
-                            <button class="page-link" @click="getProjects(currentPage + 1)">Next</button>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-12 d-flex justify-content-center">
+            <nav>
+                <ul class="pagination">
+                    <li :class="currentPage === 1 ? 'disabled' : 'page-item'">
+                        <button class="page-link" @click="getProjects(currentPage - 1)">Prev</button>
+                    </li>
+                    <li :class="currentPage === i ? 'disabled' : 'page-item'" v-for="i in lastPage">
+                        <button class="page-link" @click="getProjects(i)">{{i}}</button>
+                    </li>
+                    <li :class="currentPage === lastPage ? 'disabled' : 'page-item'">
+                        <button class="page-link" @click="getProjects(currentPage + 1)">Next</button>
+                    </li>
+                </ul>
+            </nav>
         </div>
-
-
     </div>
 
 </template>
