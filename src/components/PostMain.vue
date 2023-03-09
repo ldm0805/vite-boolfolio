@@ -56,22 +56,18 @@ export default {
             <div v-else class="d-flex flex-wrap gap-5 justify-content-center">
                 <div v-for="post in projects" :key="post.id" class="col-md-3">
                     <div>
-        <div class="card my-3">
+                        <div class="card my-3">
                         <img :src="projects.cover_image != null ? `${baseUrl}/storage/${projects.cover_image}` : 'https://picsum.photos/200/300'" class="card-img-top" alt="Cover Image">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
-                            <!-- <em>Categoria: {{type.category.name}}</em> -->
-                            <!-- <span class="badge bg-primary" v-for="tag in project.tags">
-                                {{tags.name}}
 
-                            </span> -->
                             <p class="card-text">{{post.excerpt}}</p>
                             <a href="#" class="btn btn-sm btn-success">Leggi l'articolo</a>
                         </div>
                     </div>
-    </div>
                 </div>
             </div>
+        </div>
             <div class="row text-center">
                 <div class="col-12">
                     <nav>
