@@ -24,7 +24,6 @@ export default {
                         this.projects = response.data.results.data;
                         this.currentPage = response.data.results.current_page;
                         this.lastPage = response.data.results.last_page;
-
                         this.loading = false;
                     }
                     else {
@@ -54,7 +53,6 @@ export default {
             <div v-else class="d-flex flex-wrap gap-5 justify-content-center">
                 <div v-for="project in projects" :key="project.id" class="col-md-3">
                     <ProjectCard :project="project" :baseUrl="baseUrl"></ProjectCard>
-                    
                 </div>
             </div>
             <div class="row text-center">
