@@ -1,15 +1,15 @@
 <script>
 
-import PostMain from './components/PostMain.vue'
+import ProjectMain from './components/ProjectMain.vue'
 export default {
   components: {
-    PostMain
+    ProjectMain
   }
 }
 </script>
 <template lang="">
   <div>
-    <PostMain />
+    <ProjectMain />
   </div>
 </template>
 <style lang="scss" scoped></style>
