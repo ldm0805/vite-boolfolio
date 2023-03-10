@@ -27,37 +27,38 @@
     }
 </script>
 <template lang="">
-    <div class="container">
+    <div class="container d-flex justify-content-center">
         <div v-if="loading" class="d-flex justify-content-center">
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div class="col-12" v-else>
-            <div class="float-end">
-                <router-link :to="{ name : 'PostList'}" class="btn btn-sm btn-success">torna indietro</router-link>
+        <div class="col-4" v-else>
+            <div class="">
+                <router-link :to="{ name : 'PostList'}" class="btn btn-sm btn-success">
+                    <i class="fa-solid fa-left-long pe-2"></i>
+                    Torna indietro
+                </router-link>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <h2>{{post.title}}</h2>
-                </div>
-                <div class="cover_img">
+            <div class="card">
+                <div class="card-img-top text-center">
                     <img :src=" post.cover_image != null ? `${this.store.baseUrl}/storage/${post.cover_image}` : 'https://picsum.photos/200/300'"
                         alt="">
                 </div>
-                <p class="card-text"><strong>Contenuto:</strong> {{post.content}}</p>
-                <p class="card-text">Livello: {{post.type.name}}</p>
-                <template v-if="post.tags.length">
-                    <div class="d-flex gap-2 flex-wrap align-items-center">
-                        <span>Tag: </span>
-                        <span v-for="tag in post.tags"
-                            class="badge bg-info text-white text-uppercase">{{tag.name}}</span>
-                    </div>
-                </template>
-
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text"><strong>Contenuto:</strong> {{post.content}}</p>
+                    <p class="card-text">Livello: {{post.type.name}}</p>
+                    <template v-if="post.tags.length">
+                        <div class="d-flex gap-2 flex-wrap align-items-center">
+                            <span>Tag: </span>
+                            <span v-for="tag in post.tags"
+                                class="badge bg-info text-white text-uppercase">{{tag.name}}</span>
+                        </div>
+                    </template>
+                </div>
             </div>
         </div>
-
     </div>
 </template>
 <style lang="scss" scoped>

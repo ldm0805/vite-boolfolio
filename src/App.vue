@@ -1,9 +1,5 @@
 <script>
-
-
 import AppHeader from './components/AppHeader.vue'
-
-
 export default {
   components: {
     AppHeader,
@@ -18,4 +14,6 @@ export default {
     <router-view></router-view>
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss">
+@use './styles/app.scss' as *;
+</style>
