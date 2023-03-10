@@ -24,7 +24,7 @@ const router = createRouter({
         //Rotta per il dettaglio del post
         {
             //con :nome_parametro andiamo a passare il parametro per visualizzare il dettaglio di un post, il nome_parametro deve coincidere con quello dato in api.php nella repo di laraver
-            path: '/blog/:slug',
+            path: '/posts/:slug',
             name: 'single-post',
             component: SinglePost
         },

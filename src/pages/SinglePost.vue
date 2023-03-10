@@ -13,7 +13,7 @@
         },
         mounted() {
             this.loading = true;
-            axios.get(`${this.store.baseUrl}/api/posts/${this.$route.params.slug}`).then((response) => {
+            axios.get(`${store.baseUrl}/api/posts/${this.$route.params.slug}`).then((response) => {
                 if (response.data.success) {
                     this.post = response.data.post
                     this.loading = false
@@ -45,11 +45,16 @@
                     <img :src=" post.cover_image != null ? `${this.store.baseUrl}/storage/${post.cover_image}` : 'https://picsum.photos/200/300'"
                         alt="">
                 </div>
-                <!-- <div class="d-flex gap-2 flex-wrap align-items-center">
-                    <span>Tag: </span>
-                    <span v-for="tag in project.tags"
-                        class="badge bg-info text-white text-uppercase">{{tag.name}}</span>
-                </div> -->
+                <p class="card-text"><strong>Contenuto:</strong> {{post.content}}</p>
+                <p class="card-text">Livello: {{post.type.name}}</p>
+                <template v-if="post.tags.length">
+                    <div class="d-flex gap-2 flex-wrap align-items-center">
+                        <span>Tag: </span>
+                        <span v-for="tag in post.tags"
+                            class="badge bg-info text-white text-uppercase">{{tag.name}}</span>
+                    </div>
+                </template>
+
             </div>
         </div>
 
