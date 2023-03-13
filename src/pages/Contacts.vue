@@ -28,7 +28,6 @@ export default {
                 message: this.message,
             }
             this.loading = true;
-            this.errors = null;
             axios.post(`${this.store.baseUrl}/api/contacts`, data).then((response) => {
                 if (!response.data.success) {
                     this.errors = response.data.errors
@@ -112,28 +111,28 @@ export default {
                         <div class="col-12 col-md-6 my-2">
                             <label for="cognome" class="control-label">cognome</label>
                             <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" v-model="surname">
-                            <div v-for="(error, index) in errors.surname" :key="`message-error-${index}`" class="text-danger">
+                            <div  v-for="(error, index) in errors.surname" :key="`message-error-${index}`" class="text-danger">
                                 {{error}}
                                 </div>
                         </div>
                         <div class="col-12 col-md-6 my-2">
                             <label for="email" class="control-label">Email</label>
                             <input type="mail" class="form-control" name="email" id="email" placeholder="email" v-model="email">
-                            <div v-for="(error, index) in errors.email" :key="`message-error-${index}`" class="text-danger">
+                            <div  v-for="(error, index) in errors.email" :key="`message-error-${index}`" class="text-danger">
                                 {{error}}
                                 </div>
                         </div>
                         <div class="col-12 col-md-6 my-2">
                             <label for="telefono" class="control-label">telefono</label>
                             <input type="phone" class="form-control" name="telefono" id="telefono" placeholder="telefono" v-model="phone">
-                            <div v-for="(error, index) in errors.phone" :key="`message-error-${index}`" class="text-danger">
+                            <div  v-for="(error, index) in errors.phone" :key="`message-error-${index}`" class="text-danger">
                                 {{error}}
                                 </div>
                         </div>
                         <div class="col-12 my-2">
                             <label for="messaggio" class="control-label">Scrivi un messaggio personalizzato</label>
                             <textarea name="messaggio" id="messaggio" v-model="message" cols="30" rows="10" class="form-control"></textarea>
-                            <div v-for="(error, index) in errors.message" :key="`message-error-${index}`" class="text-danger">
+                            <div  v-for="(error, index) in errors.message" :key="`message-error-${index}`" class="text-danger">
                                 {{error}}
                                 </div>
                         </div>
