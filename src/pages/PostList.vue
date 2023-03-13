@@ -44,7 +44,7 @@ export default {
 <template lang="">
     <div class="row">
         <div class="col-12">
-            <h2 class="text-center">Boolpress</h2>
+            <h2 class="text-center my-3">Boolpress</h2>
         </div>
     </div>
     <div class="d-flex justify-content-center">

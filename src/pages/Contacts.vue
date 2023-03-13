@@ -94,9 +94,6 @@ export default {
                     </div>
                 </div>
             </div>
-            <div class="col-12" v-if="success">
-                messaggio inviato con successo
-            </div>
             <div class="col-12">
                 <h5 class="text-center">Scrivici</h5>
                 <form @submit.prevent="sendForm">
@@ -104,27 +101,27 @@ export default {
                         <div class="col-12 col-md-6 my-2">
                             <label for="nome" class="control-label">Nome</label>
                             <input type="text" class="form-control"  name="nome" id="nome" placeholder="Nome" v-model="name">
-                            <div  v-for="(error, index) in errors.name" :key="`message-error-${index}`" class="text-danger">
+                            <div v-for="(error, index) in errors.name" :key="`message-error-${index}`" class="text-danger">
                             {{error}}
                             </div>
                         </div>
                         <div class="col-12 col-md-6 my-2">
-                            <label for="cognome" class="control-label">cognome</label>
-                            <input type="text" class="form-control" name="cognome" id="cognome" placeholder="cognome" v-model="surname">
+                            <label for="cognome" class="control-label">Cognome</label>
+                            <input type="text" class="form-control" name="cognome" id="cognome" placeholder="Cognome" v-model="surname">
                             <div  v-for="(error, index) in errors.surname" :key="`message-error-${index}`" class="text-danger">
                                 {{error}}
                                 </div>
                         </div>
                         <div class="col-12 col-md-6 my-2">
                             <label for="email" class="control-label">Email</label>
-                            <input type="mail" class="form-control" name="email" id="email" placeholder="email" v-model="email">
+                            <input type="mail" class="form-control" name="email" id="email" placeholder="Email" v-model="email">
                             <div  v-for="(error, index) in errors.email" :key="`message-error-${index}`" class="text-danger">
                                 {{error}}
                                 </div>
                         </div>
                         <div class="col-12 col-md-6 my-2">
-                            <label for="telefono" class="control-label">telefono</label>
-                            <input type="phone" class="form-control" name="telefono" id="telefono" placeholder="telefono" v-model="phone">
+                            <label for="telefono" class="control-label">Telefono</label>
+                            <input type="phone" class="form-control" name="telefono" id="telefono" placeholder="Telefono" v-model="phone">
                             <div  v-for="(error, index) in errors.phone" :key="`message-error-${index}`" class="text-danger">
                                 {{error}}
                                 </div>
@@ -137,15 +134,12 @@ export default {
                                 </div>
                         </div>
                         <div class="col-12 my-2 text-center">
-                            <button type="submit" class="send_email" :disabled="loading">{{loading ? 'Invio...' : 'invia messaggio'}}</button>
+                            <button type="submit" class="send_email" :disabled="loading">{{loading ? 'Sto inviando...' : 'Invia'}}</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
-    <div class="container-fluid">
-        <h2>Google maps</h2>
     </div>
 </template>
 <style lang="scss" scoped>
