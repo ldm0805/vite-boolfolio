@@ -1,4 +1,5 @@
 <script>
+
 export default {
     name: "AppHeader",
     data() {
@@ -11,7 +12,11 @@ export default {
                 {
                     label: 'Blog',
                     routeName: 'PostList'
-                }
+                },
+                {
+                    label: 'Contatti',
+                    routeName: 'contacts'
+                },
             ]
         }
     }
