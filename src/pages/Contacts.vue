@@ -14,8 +14,6 @@ export default {
             errors: {},
             success: false,
             loading: false,
-
-
         }
     },
     methods: {
