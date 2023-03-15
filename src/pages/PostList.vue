@@ -42,24 +42,25 @@ export default {
 }
 </script>
 <template lang="">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="text-center my-3">Boolpress</h2>
-        </div>
-    </div>
-    <div class="d-flex justify-content-center">
-        <div v-if="loading" class="d-flex justify-content-center">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center my-3">Boolpress</h2>
             </div>
         </div>
-        <div class="d-flex flex-wrap" v-else>
-            <div class="col-3 p-3" v-for="project in projects" :key="project.id">
-                <ProjectCard :project="project"></ProjectCard>
+        <div class="d-flex justify-content-center">
+            <div v-if="loading" class="d-flex justify-content-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap" v-else>
+                <div class="col-3 p-3" v-for="project in projects" :key="project.id">
+                    <ProjectCard :project="project"></ProjectCard>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row my-5">
+    <div class="row py-5">
         <div class="col-12 d-flex justify-content-center">
             <nav>
                 <ul class="pagination">
@@ -76,14 +77,9 @@ export default {
             </nav>
         </div>
     </div>
+</div>
 </template>
 <style lang="scss" scoped>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .loader {
     border: 16px solid #f3f3f3;
     /* Light grey */
@@ -107,5 +103,9 @@ export default {
 
 .page-link {
     padding: .8em;
+}
+
+.container-fluid {
+    background-color: rgb(44, 51, 51);
 }
 </style>

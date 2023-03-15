@@ -45,7 +45,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 .background-nav {
-    background-color: cadetblue;
+    background-color: #20262E;
     color: white;
 }
 
